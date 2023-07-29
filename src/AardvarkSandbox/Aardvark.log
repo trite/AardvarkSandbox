@@ -102,7 +102,7 @@
  0:     [GetPluginAssemblyPaths] cache found for: E:\Stuff\Git\AardvarkSandbox\bin\Debug\net6.0\Silk.NET.Core.dll
  0:     [GetPluginAssemblyPaths] cache found for: E:\Stuff\Git\AardvarkSandbox\bin\Debug\net6.0\Silk.NET.GLFW.dll
  0:     trying to load native dependencies for Aardvark.Base.FSharp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
- 0:   Loading plugins .................................................................... 0.033 s
+ 0:   Loading plugins .................................................................... 0.032 s
  0:   [Introspection] Ignoring assembly System.Runtime due to filter
  0:   [Introspection] Ignoring assembly netstandard due to filter
  0:   [Introspection] Ignoring assembly System.Runtime.Numerics due to filter
@@ -252,7 +252,7 @@
  0:     [cache miss] AardvarkSandbox, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
  0:     [cache hit ] FSharp.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
  0:     [cache hit ] Aardvark.Base, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
- 0:   initializing Constants ............................................................. 0.005 s
+ 0:   initializing Constants ............................................................. 0.007 s
  0:     [cache hit ] Aardvark.Base.Telemetry, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
  0:     [cache hit ] Aardvark.Application.Slim.GL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
  0:     [cache hit ] Aardvark.Application, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
@@ -281,14 +281,14 @@
  0:     [cache hit ] Silk.NET.GLFW, Version=2.15.0.0, Culture=neutral, PublicKeyToken=null
  0:     [cache hit ] Silk.NET.Core, Version=2.15.0.0, Culture=neutral, PublicKeyToken=null
  0:     installing pickler: Aardvark.Base.Picklers.AdaptivePicklers
- 0:   initializing CustomPicklerProvider ................................................. 0.022 s
+ 0:   initializing CustomPicklerProvider ................................................. 0.024 s
  0:     [cache hit ] Aardvark.Base.TypeProviders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
  0:     [cache hit ] Aardvark.Base.Tensors.CSharp, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
  0:     [cache hit ] Aardvark.Base.Tensors, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
  0:   initializing PixImageSharp .................................................................
  0:     skipped LoadNativeDependencies for SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13
  0:     skipped LoadNativeDependencies for System.Numerics.Vectors, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
- 0:   initializing PixImageSharp ......................................................... 0.020 s
+ 0:   initializing PixImageSharp ......................................................... 0.024 s
  0:     [cache hit ] Aardvark.Base.Incremental, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
  0:     [cache hit ] Aardvark.Base.Essentials, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null
  0:     [cache hit ] Aardvark.Rendering.GL, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
@@ -298,7 +298,7 @@
  0:     [cache hit ] Aardvark.Application.Slim, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null
  0:     [cache hit ] Silk.NET.GLFW, Version=2.15.0.0, Culture=neutral, PublicKeyToken=null
  0:     [cache hit ] Silk.NET.Core, Version=2.15.0.0, Culture=neutral, PublicKeyToken=null
- 0: initializing aardvark ........................................................ [0.08x] 0.145 s
+ 0: initializing aardvark ........................................................ [0.12x] 0.165 s
  0: probing paths for nvapi64
  0:   E:\Stuff\Git\AardvarkSandbox\bin\Debug\net6.0
  0:   C:\Users\pbrun\AppData\Local\Temp\aardvark-native\Aardvark.Rendering.GL-11362952-a4a0-f67f-1756-61424e5b81f8-64
@@ -751,3 +751,5 @@
  0: initializing OpenGL runtime .......................................................... 0.023 s
  0: skipped LoadNativeDependencies for System.ObjectModel, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
  0: skipped LoadNativeDependencies for System.Runtime.Serialization.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: skipped LoadNativeDependencies for System.Reflection.Emit, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+ 0: trying to load native dependencies for Aardvark.Rendering.GL.Writers, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
