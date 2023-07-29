@@ -1,4 +1,4 @@
-﻿open System
+open System
 open Aardvark.Base
 open Aardvark.Rendering
 open Aardvark.Application.Slim
@@ -60,13 +60,9 @@ let main argv =
 
     let testArr =
         Array.init (rowLength * rowLength) (fun i ->
-            if
-                i = 4 + 4 * rowLength
-                || i = 5 + 5 * rowLength
-                || i = 5 + 6 * rowLength
-                || i = 4 + 6 * rowLength
-                || i = 3 + 6 * rowLength
-            then
+            let isCell (i: int) (x: int) (y: int) = i = x + y * rowLength
+
+            if isCell i 4 4 || isCell i 5 5 || isCell i 5 6 || isCell i 4 6 || isCell i 3 6 then
                 1
             else
                 0)
