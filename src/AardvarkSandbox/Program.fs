@@ -40,8 +40,10 @@ let printGrid (cells: int[]) (rowLength: int) =
     let printCell (cell: int) =
         if cell = 1 then printf "X" else printf "."
 
-    for y in 0 .. rowLength - 1 do
-        for x in 0 .. rowLength - 1 do
+    let limit = min (rowLength - 1) 10
+
+    for y in 0..limit do
+        for x in 0..limit do
             printCell cells.[y * rowLength + x]
 
         printfn ""
@@ -54,129 +56,28 @@ let main argv =
 
     let runtime = app.Runtime :> IRuntime
 
-    // let testArr = [|
-    //     0; 0; 0; 0; 0; 0; 0; 0; 0; 0;
-    //     0; 0; 1; 0; 0; 0; 0; 0; 0; 0;
-    //     0; 0; 0; 1; 0; 0; 0; 0; 0; 0;
-    //     0; 1; 1; 1; 0; 0; 0; 0; 0; 0;
-    //     0; 0; 0; 0; 0; 0; 0; 0; 0; 0;
-    //     0; 0; 0; 0; 0; 0; 0; 0; 0; 0;
-    //     0; 0; 0; 0; 0; 0; 0; 0; 0; 0;
-    //     0; 0; 0; 0; 0; 0; 0; 0; 0; 0;
-    //     0; 0; 0; 0; 0; 0; 0; 0; 0; 0;
-    //     0; 0; 0; 0; 0; 0; 0; 0; 0; 0;
-    // |]
+    let rowLength = 100
 
     let testArr =
-        [| 0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           1
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           1
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           1
-           1
-           1
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0
-           0 |]
+        Array.init (rowLength * rowLength) (fun i ->
+            if
+                i = 4 + 4 * rowLength
+                || i = 5 + 5 * rowLength
+                || i = 5 + 6 * rowLength
+                || i = 4 + 6 * rowLength
+                || i = 3 + 6 * rowLength
+            then
+                1
+            else
+                0)
 
     let input = runtime.CreateBuffer<int>(testArr)
 
     let targetWriteShader = runtime.CreateComputeShader caSimulation
     let targetWrite = runtime.NewInputBinding(targetWriteShader)
 
-    // targetWrite.["n"] <- input
     targetWrite.["cells"] <- input
-    targetWrite.["rowLength"] <- 10
+    targetWrite.["rowLength"] <- rowLength
 
     targetWrite.Flush()
 
@@ -189,13 +90,21 @@ let main argv =
 
     let program = runtime.Compile mk
 
+    printfn "Grid is %i x %i (%i total cells)" rowLength rowLength (rowLength * rowLength)
+    printfn "Showing first 10 x 10 of total grid"
+    printfn ""
+
+    printfn "Initial:"
+    printGrid testArr rowLength
+
     for i in 1..10 do
         program.Run()
 
         let result = input.Download()
 
+        printfn ""
         printfn "Result %i:" i
-        printGrid result 10
+        printGrid result rowLength
 
     0 // return code
 
